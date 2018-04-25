@@ -223,6 +223,7 @@
     <Content Include="Content\editor.css" />
     <Content Include="Content\fonts.css" />
     <Content Include="Content\graph.png" />
+    <Content Include="Content\hocr-proofreader.css" />
     <Content Include="Content\jfk-files.png" />
     <Content Include="Content\main.css" />
     <Content Include="Content\pdf_logo.png">
