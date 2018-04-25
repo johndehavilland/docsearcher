@@ -256,6 +256,7 @@ HocrProofreader.prototype.renderPage = function (pageNode) {
 
     if (!this.currentPage) {
         // TODO: hide completely? reset image/font/viewBox/...?
+        this.layoutImage.setAttributeNS('http://www.w3.org/1999/xlink', 'href', "/Content/pdf_logo.png");
         return;
     }
 

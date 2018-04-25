@@ -75,5 +75,20 @@ namespace DocSearch.Controllers
             blob.UploadFromStream(file.InputStream);
 
         }
+
+        public void DownloadBlob(string name)
+        {
+            string orig_name = name.Replace(".txt","");
+            CloudBlobContainer container = GetCloudBlobContainer();
+            var blob = container.GetBlobReferenceFromServer(orig_name);
+
+            var memStream = new MemoryStream();
+            blob.DownloadToStream(memStream);
+
+            Response.ContentType = blob.Properties.ContentType;
+            Response.AddHeader("Content-Disposition", "Attachment;filename=" + orig_name);
+            Response.AddHeader("Content-Length", blob.Properties.Length.ToString());
+            Response.BinaryWrite(memStream.ToArray());
+        }
     }
 }
